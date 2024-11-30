@@ -1,6 +1,6 @@
-package Topmix.reports.Repository;
+package TopmixReports.Repository;
 
-import Topmix.reports.Enity.Producao;
+import TopmixReports.Enity.Producao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

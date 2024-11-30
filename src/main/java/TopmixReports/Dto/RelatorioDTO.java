@@ -1,16 +1,16 @@
-package Topmix.reports.Dto;
+package TopmixReports.Dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class RelatorioDTO {
-
+    private Long Id;
     private String produto;
     private Integer quantidade;
     private BigDecimal valor;
     private LocalDate data;
 
-    // Construtor
+
     public RelatorioDTO(String produto, Integer quantidade, BigDecimal valor, LocalDate data) {
         this.produto = produto;
         this.quantidade = quantidade;
@@ -18,7 +18,17 @@ public class RelatorioDTO {
         this.data = data;
     }
 
-    // Getters e Setters
+
+
+
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = Long.valueOf(id);
+    }
+
     public String getProduto() {
         return produto;
     }

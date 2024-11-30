@@ -1,9 +1,7 @@
-package Topmix.reports.Enity;
+package TopmixReports.Enity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -13,11 +11,13 @@ import java.time.LocalDate;
 public class Producao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
+    private Long id;
     private String produto;
     private Integer quantidade;
     private BigDecimal valor;
+
+
     private LocalDate data;
 
 

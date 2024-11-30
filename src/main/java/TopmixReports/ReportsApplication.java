@@ -1,9 +1,9 @@
-package Topmix.reports;
+package TopmixReports;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "TopmixReports")
 public class ReportsApplication {
 
 	public static void main(String[] args) {
