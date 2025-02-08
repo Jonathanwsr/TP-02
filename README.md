@@ -1,4 +1,4 @@
-# Projeto Java utilizando Spring Boot - Tech Zone
+# Projeto Java utilizando Spring Boot 
 
 ## Descrição
 
@@ -10,11 +10,7 @@ Este projeto tem como objetivo auxiliar empresas a obterem insights sobre sua pr
     * Java
     * Spring Boot
     * MY SQL
-    * 
-* **Frontend:**
-    * Angular
-
-## Funcionamento
+  
 
 
 
