@@ -1,12 +1,11 @@
-package TopmixReports.Controller;
+package TopReports.Controller;
 
-import TopmixReports.Enity.Producao;
-import TopmixReports.Exeption.ResourceNotFoundException;
-import TopmixReports.Service.ProducaoService;
+import TopReports.Enity.Producao;
+import TopReports.Exeption.ResourceNotFoundException;
+import TopReports.Service.ProducaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
@@ -16,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Controller
+@RestController
 @RequestMapping("/relatorios")
 
 public class RelatorioController {
@@ -45,7 +44,7 @@ public class RelatorioController {
 
     }
 
-    // Retorna todas as produções até um ano a partir de uma data inicial
+
     @GetMapping("todos")
     public ResponseEntity<List<Producao>> obterProducoesAteUmAno(
             @RequestParam("inicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate inicio) {

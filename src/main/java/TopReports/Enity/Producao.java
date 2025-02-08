@@ -1,33 +1,33 @@
-package TopmixReports.Dto;
+package TopReports.Enity;
+
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class RelatorioDTO {
-    private Long Id;
+@Entity
+
+public class Producao {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    private Long id;
     private String produto;
     private Integer quantidade;
     private BigDecimal valor;
+
+
     private LocalDate data;
 
 
-    public RelatorioDTO(String produto, Integer quantidade, BigDecimal valor, LocalDate data) {
-        this.produto = produto;
-        this.quantidade = quantidade;
-        this.valor = valor;
-        this.data = data;
-    }
-
-
-
-
     public Long getId() {
-        return Id;
+        return id;
     }
 
-    public void setId(String id) {
-        Id = Long.valueOf(id);
+    public void setId(Long id) {
+        this.id = id;
     }
+
 
     public String getProduto() {
         return produto;
@@ -36,6 +36,7 @@ public class RelatorioDTO {
     public void setProduto(String produto) {
         this.produto = produto;
     }
+
 
     public Integer getQuantidade() {
         return quantidade;
@@ -60,4 +61,6 @@ public class RelatorioDTO {
     public void setData(LocalDate data) {
         this.data = data;
     }
+
+
 }

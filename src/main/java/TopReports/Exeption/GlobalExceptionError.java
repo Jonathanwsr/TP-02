@@ -1,4 +1,4 @@
-package TopmixReports.Exeption;
+package TopReports.Exeption;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
