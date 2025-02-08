@@ -1,4 +1,4 @@
-package TopmixReports.Exeption;
+package TopReports.Exeption;
 
 public class ResourceNotFoundException extends Throwable {
 

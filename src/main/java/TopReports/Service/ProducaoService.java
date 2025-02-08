@@ -1,8 +1,8 @@
-package TopmixReports.Service;
+package TopReports.Service;
 
-import TopmixReports.Enity.Producao;
-import TopmixReports.Exeption.ResourceNotFoundException;
-import TopmixReports.Repository.ProducaoRepository;
+import TopReports.Enity.Producao;
+import TopReports.Exeption.ResourceNotFoundException;
+import TopReports.Repository.ProducaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

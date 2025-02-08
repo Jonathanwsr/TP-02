@@ -1,32 +1,28 @@
-package TopmixReports.Enity;
-
-import jakarta.persistence.*;
-import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+package TopReports.Dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "acumulados")
-public class Acumulado {
+public class AcumuladoDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
 
     private Long id;
-
-    @NotNull(message = "O campo 'venda' não pode ser nulo.")
-    @Size(min = 3, max = 100, message = "O campo 'nome' deve ter entre 3 e 100 caracteres.")
-
     private String venda;
     private String tipo;
-
-    @NotNull(message = "O campo 'valor' não pode ser nulo.")
-    @DecimalMin(value = "0.0", inclusive = false, message = "O campo 'valor' deve ser maior que zero.")
-    private BigDecimal valor;
+    private BigDecimal  valor;
     private LocalDate data;
+
+    public AcumuladoDTO(Long id , String venda, String tipo, BigDecimal valor, LocalDate data) {
+        this.id = id;
+        this.venda = venda;
+        this.tipo = tipo;
+        this.valor = valor;
+        this.data = data;
+
+    }
+
+
 
     public Long getId() {
         return id;
@@ -67,5 +63,4 @@ public class Acumulado {
     public void setData(LocalDate data) {
         this.data = data;
     }
-
 }
