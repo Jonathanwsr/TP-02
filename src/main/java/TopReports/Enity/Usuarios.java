@@ -24,7 +24,7 @@ public class Usuarios  implements UserDetails {
     private String userName;
 
     @NotBlank(message = "A senha não pode ser nula.")
-    @Size(min = 5, message = "A senha deve ter no mínimo 5 caracteres.") // Atualizado para 10
+    @Size(min = 5, message = "A senha deve ter no mínimo 5 caracteres.")
     private String password;
 
    // @NotBlank(message = "O role do usuário não pode ser nulo ou vazio.")
@@ -90,5 +90,9 @@ public class Usuarios  implements UserDetails {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
