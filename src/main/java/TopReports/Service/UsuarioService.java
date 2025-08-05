@@ -4,21 +4,9 @@ import TopReports.Dto.UsuarioDTO;
 import TopReports.Enity.Usuarios;
 import TopReports.Repository.UsuarioRepository;
 import TopReports.Segurity.JwtUtils;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import java.util.Collection;
-import java.util.Date;
-import java.util.Optional;
-
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -26,16 +14,20 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.Optional;
+
 @Service
 public class UsuarioService implements UserDetailsService {
 
     private final UsuarioRepository usuarioRepository;
     private final PasswordEncoder passwordEncoder;
+    private final JwtUtils jwtUtils;
 
     @Autowired
-    public UsuarioService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
+    public UsuarioService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder, JwtUtils jwtUtils) {
         this.usuarioRepository = usuarioRepository;
         this.passwordEncoder = passwordEncoder;
+        this.jwtUtils = jwtUtils;
     }
 
     @Override
@@ -47,7 +39,6 @@ public class UsuarioService implements UserDetailsService {
     public ResponseEntity<String> registro(@Valid @RequestBody UsuarioDTO usuarioDTO) {
         if (usuarioRepository.findByUserName(usuarioDTO.getUserName()).isPresent()) {
             return ResponseEntity.badRequest().body("Usuário já existe!");
-
         }
 
         Usuarios usuario = new Usuarios();
@@ -65,14 +56,11 @@ public class UsuarioService implements UserDetailsService {
         if (optionalUsuario.isPresent()) {
             Usuarios usuario = optionalUsuario.get();
             if (passwordEncoder.matches(usuarioDTO.getPassword(), usuario.getPassword())) {
-                return Jwts.builder()
-                        .setSubject(usuarioDTO.getUserName())
-                        .setIssuedAt(new Date())
-                        .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // 1 dia de validade
-                        .signWith(SignatureAlgorithm.HS512, "secret_key")
-                        .compact();
+
+                return jwtUtils.generateToken(usuario.getUserName(), usuario.getId());
             }
         }
+
         return null;
     }
 
@@ -87,5 +75,4 @@ public class UsuarioService implements UserDetailsService {
 
         return usuarioDTO;
     }
-
 }
