@@ -101,7 +101,7 @@ json
 Copiar
 Editar
 {
-  "userName": "JONATHAN",
+  "userName": "user",
   "password": "12345"
 }
 
@@ -128,12 +128,12 @@ Retorna todas as vendas.
 GET /acumulados/periodo?inicio=2025-01-01&fim=2025-08-01
 Retorna todas as vendas entre duas datas.
 
-📌 O formato de data usado é: "YYYY-MM-DD" (padrão em todo o projeto)
+#  O formato de data usado é: "YYYY-MM-DD" (padrão em todo o projeto)
 
-🧪 Como usar o Swagger
+#  Como usar o Swagger
 Este projeto já vem com integração ao Swagger UI, que facilita testar os endpoints.
 
-🔗 Acesse:
+#  Acesse:
 bash
 Copiar
 Editar
@@ -147,14 +147,15 @@ Vá ao link acima
 
 Teste as rotas diretamente da interface web (envie JSONs, execute GETs etc.)
 
-🛡 Segurança
+# Segurança
 Este projeto usa autenticação baseada em JWT. A cada login, um token é gerado. Você deve incluí-lo nos headers das próximas requisições:
 
 makefile
 Copiar
 Editar
 Authorization: Bearer <seu-token-aqui>
-📁 Exemplo de resposta JSON (GET /acumulados)
+
+ # Exemplo de resposta JSON (GET /acumulados)
 json
 Copiar
 Editar
@@ -168,21 +169,35 @@ Editar
   }
 ]
 
- Autor
-Jonathan Rocha
-GitHub
-LinkedIn
+## Autor
 
-📌 Observações
-As senhas dos usuários são armazenadas com criptografia BCrypt.
+**Jonathan Rocha**  
+- GitHub: [https://github.com/Jonathanwsr](https://github.com/Jonathanwsr)  
+- LinkedIn: [https://www.linkedin.com/in/jonathan-rocha-51b8ab268](https://www.linkedin.com/in/jonathan-rocha-51b8ab268)
 
-O token JWT tem tempo de expiração e deve ser renovado com um novo login.
+---
+
+## Observações
+
+- As senhas dos usuários são armazenadas utilizando **criptografia BCrypt** para maior segurança.  
+- O token **JWT** possui tempo de expiração definido e deve ser renovado através de um novo login.  
+
+---
+
+## Como Clonar o Repositório
+
+1. Clone o repositório:
+  
+   Clone o repositorio  https://github.com/Jonathanwsr/TP-02.git
 
 
-1. **Clone o repositório:**
-   ```bash
-   git clone https://https://github.com/Jonathanwsr/TP-02.git
+   # Autor
 
+**Jonathan Rocha**  
+- GitHub: [https://github.com/Jonathanwsr](https://github.com/Jonathanwsr)  
+- LinkedIn: [https://www.linkedin.com/in/jonathan-rocha-51b8ab268](https://www.linkedin.com/in/jonathan-rocha-51b8ab268)
+
+---
 
 
 
